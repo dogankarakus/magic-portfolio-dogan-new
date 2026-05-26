@@ -20,14 +20,15 @@ const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/blog": false,
+  "/gallery": false,
 };
 
 const display: DisplayConfig = {
   location: true,
-  time: true,
-  themeSwitcher: true,
+  time: false,
+  themeSwitcher: false,
+
 };
 
 // Enable password protection on selected routes
@@ -73,13 +74,13 @@ const fonts: FontsConfig = {
 
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
-  theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | mint | rose | dusk | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  theme: "light", // dark | light
+  neutral: "slate", // sand | gray | slate
+  brand: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  accent: "yellow", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative | sharp
+  border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
@@ -101,13 +102,13 @@ const dataStyle: DataStyleConfig = {
 
 const effects: EffectsConfig = {
   mask: {
-    cursor: false,
+    cursor: true,
     x: 50,
     y: 0,
     radius: 100,
   },
   gradient: {
-    display: false,
+    display: true,
     opacity: 100,
     x: 50,
     y: 60,
@@ -144,13 +145,13 @@ const mailchimp: MailchimpConfig = {
   action: "https://url/subscribe/post?parameters",
   effects: {
     mask: {
-      cursor: true,
+      cursor: false,
       x: 50,
       y: 0,
       radius: 100,
     },
     gradient: {
-      display: true,
+      display: false,
       opacity: 90,
       x: 50,
       y: 0,
@@ -161,7 +162,7 @@ const mailchimp: MailchimpConfig = {
       colorEnd: "static-transparent",
     },
     dots: {
-      display: true,
+      display: false,
       opacity: 20,
       size: "2",
       color: "brand-on-background-weak",
@@ -202,7 +203,7 @@ const sameAs: SameAsConfig = {
 
 // social sharing configuration for blog posts
 const socialSharing: SocialSharingConfig = {
-  display: true,
+  display: false,
   platforms: {
     x: true,
     linkedin: true,

@@ -2,18 +2,20 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Dogan",
+  lastName: "Karakus",
+  get name() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  role: "Software Engineer",
+  email: "dogancankarakuss@gmail.com",
+  avatar: "/images/resume_photo.png",
+  location: "Europe/Berlin", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: <>My weekly newsletter about creativity and engineering</>,
 };
@@ -23,34 +25,19 @@ const social: Social = [
   // Import new icons in /once-ui/icons.ts
   // Set essentials: true for links you want to show on the about page
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system",
-    essential: true,
-  },
-  {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-    essential: true,
+    link: "https://www.linkedin.com/in/dogan-karakuss/",
   },
   {
     name: "Email",
     icon: "email",
-    link: `mailto:${person.email}`,
-    essential: true,
+    link: "mailto:dogancankarakuss1@gmail.com",
+  },
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/dogankarakus",
   },
 ];
 
@@ -60,9 +47,15 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Software Engineer, Flutter Developer</>,
+  subline: (
+    <>
+      I'm Dogan, a software engineer specializing in cross-platform mobile development with Flutter
+      <br /> —and a music enthusiast.
+    </>
+  ),
   featured: {
-    display: true,
+    display: false,
     title: (
       <Row gap="12" vertical="center">
         <strong className="ml-4">Once UI</strong>{" "}
@@ -74,17 +67,13 @@ const home: Home = {
     ),
     href: "/work/building-once-ui-a-customizable-design-system",
   },
-  subline: (
-    <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
-  ),
+
 };
 
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
+  title: "About me",
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
     display: true,
@@ -92,9 +81,10 @@ const about: About = {
   },
   avatar: {
     display: true,
+
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -102,9 +92,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I'm a software developer based in Germany, passionate about turning ideas into
+        high-quality mobile apps. I specialize in building cross-platform applications,
+        crafting seamless user experiences, and blending design with technology to create
+        innovative, impactful solutions.
       </>
     ),
   },
@@ -113,42 +104,93 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Safe Sky Industries AB • Malmö",
+        timeframe: "2025/09 - 2026/03",
+        role: "Consulting Software Engineer • Remote",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Integrated real-time push notifications for 25+ airports using Go and Firebase Cloud Messaging, using Protobuf &
+            gRPC to ensure type-safe and efficient communication between the server and the Flutter client
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Closed around 30+ issues, including major refactors in the codebase, ranging from a proper theme setup to state
+            management hickups; improving both mobile and Flutter web app
+          </>,
+          <>
+            Onboarded two new airports, setting up their configurations and map data via OpenStreetMap, Docker, and a
+            custom CLI
           </>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Chunky Tofu Studios • New Jersey",
+        timeframe: "2024/11 - 2025/09",
+        role: "Founding Software Engineer (Flutter) • Remote",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Integrated in-app purchase systems for product monetization and designed gamified screens to increase user
+            engagement.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Configured GitHub CI/CD pipelines to automate testing and accelerate deployment efficiency.
           </>,
+          <>
+            Contributed technical insights during cross-functional discussions to refine feature planning and overall product
+            direction.
+          </>,
+        ],
+        images: [
+        ],
+      },
+      {
+        company: "Jusst Engineering Gmbh • Hamburg",
+        timeframe: "2023/05 - 2024/08",
+        role: "Flutter Developer • Remote",
+        achievements: [
+          <>
+            Worked on a variety of tickets, closing around 150-200 issues over the course of 1 year, primarily focusing on
+            feature development and bug fixes.
+          </>,
+          <>
+            Designed and built a mobile application from the ground up, implementing core functionalities, adopting Material 3
+            defaults for a modern UI.
+          </>,
+          <>
+            Leveraged BLoC for state management and integrated backend systems such as GraphQL and Rust to ensure
+            efficient data flow and user interaction.
+          </>,
+          <>
+            Contributed to the development of complex features like audio session management, device control, and IoT
+            connectivity, improving app functionality and user experience.
+          </>,
+
+        ],
+        images: [],
+      },
+      {
+        company: "Blindside Gmbh • Berlin",
+        timeframe: "2022/04 - 2023/02",
+        role: "Flutter Developer • Remote",
+        achievements: [
+          <>
+            Implemented video upload/download functionality via AWS S3 & CloudFront with a custom video player, enabling
+            content sharing for 10K+ users.
+          </>,
+          <>
+            Implemented 20+ app screens using state management (Riverpod), MVVM architecture, and a GraphQL backend,
+            including enhancements to existing Search and Profile screens.
+
+          </>,
+          <>
+            Integrated Firebase Dynamic Linking, allowing users to share the app with a customized button.
+
+          </>,
+          <>
+            Managed personal projects, defined tasks and milestones, and delivered 5+ features independently.
+          </>,
+
         ],
         images: [],
       },
@@ -156,15 +198,21 @@ const about: About = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Master's Degree • Computer Science",
+        description: <>
+          Kiel University (CAU), Kiel  <br></br>
+          2026/04 - Present
+        </>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Bachelor's Degree • Computer Science",
+        description: <>
+          Bahcesehir University, Istanbul  <br></br>
+          2019/09 - 2024/04
+        </>,
       },
     ],
   },
@@ -173,60 +221,44 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
+        title: "Mobile Development",
+        description: <>Flutter & Dart (4 YOE)<br></br>
+          BLoC • Riverpod • Dio • GoRouter • Freezed • Hive <br></br>
+          RevenueCat • Firebase Cloud Messaging • GraphQL
+
+
+        </>,
         // optional: leave the array empty if you don't want to display images
         images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
         ],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Cloud & Backend",
+        description: <>
+          Firebase: Firestore • Auth • Cloud Messaging <br></br>
+          AWS: S3 • ElasticSearch <br></br>
+          Go • Rust • gRPC • Protobuf
+        </>,
+      },
+      {
+        title: "DevOps",
+        description: <>
+          Github Actions • GitLab CI
+          <br></br>
+          Codemagic • Docker
+
+        </>,
+      },
+      {
+        title: "Project Management",
+        description: <>
+          Jira & Confluence • Asana • Github Issues
+        </>,
+      },
+      {
+        title: "Software Languages",
+        description: <>
+          Dart, Go, C++, Python, Java, HTML & CSS, SQL</>,
       },
     ],
   },
